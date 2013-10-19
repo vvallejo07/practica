@@ -31,10 +31,12 @@ function leerArchivos(){
     }
 
     function readAsText(file) {
+		alert(3);
         var reader = new FileReader();
         reader.onloadend = function(evt) {
              $('#aLeer').text(evt.target.result);
         };
+		alert(reader.readAsText(file));
     }
 
     function fail(evt) {
