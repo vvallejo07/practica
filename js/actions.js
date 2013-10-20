@@ -11,6 +11,7 @@ $(function(){
 			escribirArchivos($('#aEscribir').val());
 		}
 	});
+	
 	$('#ncEnv').tap(function(){
 		nuevoContacto($('#ncNom').val(),$('#ncTel').val(),$('#ncMail').val());
 	});
@@ -76,8 +77,8 @@ function escribirArchivos(texto){
     }
 }
 
-function nuevoContacto(nom, tel, mail){
-	document.addEventListener("deviceready", function(){
+function nuevoContacto(nom,tel,mail){
+	document.addEventListener("deviceready",function(){
 		var contacto = navigator.contacts.create();
 		//Puede que no funcione, solo en android o en ios
 		contacto.displayname = nom;
@@ -87,15 +88,15 @@ function nuevoContacto(nom, tel, mail){
 		nombre.familyName = 'Prueba';
 		contacto.name = nombre;
 		var telefonos = [];
-		telefonos[0] = new ContactField("home", tel, true);
-		telefonos[1] = new ContactField("work", '123-456-7890',false);
+		telefonos[0] = new ContactField("home",tel,true);
+		telefonos[1] = new ContactField("work",'123-456-7890',false);
 		contacto.phoneNumbers = telefonos;
 		var correos = [];
-		correos[0] = new ContactField("home", mail, false);
-		correos[1] = new ContactField("work", 'ejemplo@bluee.com.mx', true);
+		correos[0] = new ContactField("home",mail,false);
+		correos[1] = new ContactField("work",'ejemplo@bluee.com.mx',true);
 		contacto.emails = correos;
 		
-		cotacto.save(function(){
+		contacto.save(function(){
 			navigator.notification.alert("Contacto guardado satisfactoriamente", function(){
 				window.history.back();
 			}, "Crear Contacto","Aceptar");	
