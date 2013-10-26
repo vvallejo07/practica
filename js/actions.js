@@ -114,6 +114,7 @@ function leerContactos(){
 	document.addEventListener("deviceready", function(){
 	function onSuccess(contacts) {
     	for(i=0;i<contacts.length;i++){
+			//agregando href para numero telefonico
 			$('#lcontacto').append('<li><a href="tel: '+contacts[i].phoneNumbers[0].value+'">'+contacts[i].name.formatted+'</a></li>');
 		}
 	};
