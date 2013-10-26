@@ -113,8 +113,8 @@ function nuevoContacto(nom,tel,mail){
 function leerContactos(){
 	document.addEventListener("deviceready", function(){
 	function onSuccess(contacts) {
+		$('#lcontacto').html('');
     	for(i=0;i<contacts.length;i++){
-			$('#lcontacto').html();
 			$('#lcontacto').append('<li><a href="tel: '+contacts[i].phoneNumbers[0].value+'">'+contacts[i].name.formatted+'</a></li>');
 		}
 	};
